@@ -20,9 +20,14 @@ int main(int argc, char** argv)
     160,
     255
   );
-  function<void (Mat)> voidFn = [](Mat){};
+  FilterTransformation thresh = FilterTransformation(
+    FilterType::TruncateThreshold,
+    120,
+    255
+  );
+  function<void (Mat)> idle = [](Mat){};
 
   VideoCamera cam("cam");
-  cam.captureRealtimeWith(grayscale, voidFn);
+  cam.captureRealtimeWith(thresh, idle);
   return 0;
 }
