@@ -20,7 +20,7 @@
 #include <cstdio>
 #include <iostream>
 #include <fstream>
-#include <opencv/cv.h>
+#include <opencv2/opencv.hpp>
 using cv::PCA;
 using cv::Mat_;
 using std::cin;

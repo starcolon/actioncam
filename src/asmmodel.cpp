@@ -1,6 +1,8 @@
 #include "asmmodel.h"
 #include <cstdio>
 
+using namespace cv;
+
 namespace StatModel {
 
 void ASMModel::buildModel(const string& shapeDefFile, const string& ptsListFile)
@@ -187,7 +189,7 @@ void ASMModel::showResult(Mat& img, const vector< ASMFitResult >& res)
 {
     Mat mb;
     if (img.channels()==1)
-        cv::cvtColor(img, mb, CV_GRAY2RGB);
+        cvtColor(img, mb, CV_GRAY2RGB);
     else
         mb = img.clone();
 
@@ -208,7 +210,7 @@ ASMFitResult ASMModel::fit(const cv::Mat& img, int verbose)
     // Step 2: Ensure it is a grayscale image
     Mat grayImg;
     if (img.channels() == 3){
-        cv::cvtColor(img, grayImg, CV_BGR2GRAY);
+        cvtColor(img, grayImg, CV_BGR2GRAY);
     }
     else
         grayImg = img;

@@ -1,5 +1,5 @@
 #include <cstdio>
-#include <highgui.h>
+#include <opencv2/highgui/highgui.hpp>
 #include "shapemodel.h"
 #include "asmmodel.h"
 #include "afreader.h"

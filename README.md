@@ -9,7 +9,12 @@ An express toy project for face tracking for fun.
 The project requires the following.
 
 - [x] OpenCV 3
-- [x] [AAM library](https://github.com/derfred/asmlib-opencv), bundled in the repo and upgraded OpenCV 3 compatible.
+
+## Bundled Dependencies
+
+Following libraries are bundled into the repository under GPL licence.
+
+- [x] [ASM library](https://github.com/derfred/asmlib-opencv), with OpenCV 3 compatible tweak.
 
 ---
 
