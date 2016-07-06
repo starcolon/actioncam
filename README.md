@@ -30,6 +30,13 @@ You will need a C++11-compatible g++ compiler to build.
 
 ---
 
+## Disclaimer
+
+All ASM models located in `/models` directory originally belong 
+to ASM library: https://github.com/starcolon/asmlib-opencv/tree/master/data
+
+---
+
 ## Licence
 
 GPL Licence.
