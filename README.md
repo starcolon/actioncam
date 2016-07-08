@@ -10,6 +10,11 @@ The project requires the following.
 
 - [x] OpenCV 3
 
+> In case of installation via Homebrew on OSX, make sure to 
+add `--with-contrib --with-ffmpeg --c++11` flags. Otherwise, 
+your OpenCV build won't compile the repository.
+
+
 ## Bundled Dependencies
 
 Following libraries are bundled into the repository under GPL licence.

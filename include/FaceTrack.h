@@ -7,12 +7,17 @@
 class FaceTrack
 {
 public:
-  FaceTrack(string pathASMModel);
+  FaceTrack(string pathASMModel, string pathFaceHaarDetector);
   virtual ~FaceTrack();
 
-  // Get a tracker pipe operation
-  virtual function<void (Mat)> getPipe();
+  // Make a tracker pipe operation
+  virtual function<void (Mat)> createPipe();
+
+protected:
+  vector<Rect> haarDetectFaces();
+  vector<ASMFitResult> fitASMFaces(Mat &frame, vector<Rect> faceAreas);
 
 private:
   ASMModel model;
+  cv::CascadeClassifier faceDetector;
 }
