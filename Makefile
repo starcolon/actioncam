@@ -8,7 +8,7 @@ INCLUDE   := -I/usr/local/opt/opencv3/include -I include
 LIB       := -lopencv_core -lopencv_imgproc -lopencv_video \
 						-lopencv_videoio -lopencv_tracking -lopencv_optflow \
 						-lopencv_features2d -lopencv_ml -lopencv_highgui \
-						-lopencv_imgcodecs
+						-lopencv_imgcodecs -lopencv_objdetect
 
 # Take all CPP source files
 SRC_DIR   := src

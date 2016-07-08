@@ -4,6 +4,10 @@
 #include "modelfile.h"
 #include "ITransformation.h"
 
+using namespace std;
+using namespace cv;
+using namespace StatModel;
+
 class FaceTrack
 {
 public:
@@ -14,10 +18,10 @@ public:
   virtual function<void (Mat)> createPipe();
 
 protected:
-  vector<Rect> haarDetectFaces();
+  vector<Rect> haarDetectFaces(Mat& frame);
   vector<ASMFitResult> fitASMFaces(Mat &frame, vector<Rect> faceAreas);
 
 private:
   ASMModel model;
   cv::CascadeClassifier faceDetector;
-}
+};

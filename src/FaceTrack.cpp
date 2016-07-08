@@ -15,13 +15,18 @@ FaceTrack::~FaceTrack()
  */
 function<void (Mat)> FaceTrack::createPipe()
 {
-  // TAOTODO:
+  auto pipe = [](Mat)
+  {
+
+  };
+
+  return pipe;
 }
 
-vector<Rect> FaceTrack::haarDetectFaces()
+vector<Rect> FaceTrack::haarDetectFaces(Mat& frame)
 {
-  vector<Rect> faces = 
-  objCascadeClassfifier.detectMultiScale( img, faces,
+  vector<Rect> faces;
+  this->faceDetector.detectMultiScale( frame, faces,
     1.2, 
     2, 
     CV_HAAR_FIND_BIGGEST_OBJECT | CV_HAAR_SCALE_IMAGE, 
