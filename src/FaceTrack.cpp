@@ -20,12 +20,24 @@ function<void (Mat)> FaceTrack::createPipe()
     // Detect faces in the frame and draw
     auto faces  = haarDetectFaces(im);
     auto asmRes = fitASMFaces(im, faces);
-    auto frame  = im.clone();
+    auto canvas = im.clone();
 
-    this->model.showResult(frame, asmRes);
+    // TAOTODO: Draw all features detected
+    for (auto asmModel : asmRes)
+    {
+      vector<Point> vertices;
+      asmModel.toPointList(vertices);
 
+      // Draw points on the canvas
+      CvScalar color = Scalar(100,255,0);
+      for (auto p : vertices)
+      {
+        circle(canvas, p, 2, color, 1);
+      }
+    }
+    
     namedWindow("tracked", CV_WINDOW_AUTOSIZE);
-    imshow("tracked", frame);
+    imshow("tracked", canvas);
   };
 
   return pipe;
@@ -53,5 +65,10 @@ vector<Rect> FaceTrack::haarDetectFaces(Mat& frame)
  */
 vector<ASMFitResult> FaceTrack::fitASMFaces(Mat& frame, vector<Rect> faceAreas)
 {
+  if (faceAreas.size()==0)
+    cout << "No face detected by Haar" << endl;
+  else
+    cout << faceAreas.size() << " faces detected by Haar" << endl;
+
   return this->model.fitAll(frame, faceAreas, false);
 }
